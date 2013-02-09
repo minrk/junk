@@ -987,8 +987,8 @@
   div.out_prompt_overlay{height:100%;padding:0px;position:absolute;border-radius:4px;}
   div.out_prompt_overlay:hover{box-shadow:inset 0 0 1px #000;background:rgba(240, 240, 240, 0.5);}
   div.output_prompt{color:darkred;margin:0 5px 0 -5px;}
-  div.output_area{padding:0px;page-break-inside:avoid;}
-  div.output_area pre{font-family:monospace;margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;color:black;}
+  div.output_area{padding:0px;page-break-inside:avoid; font-family: monospace;}
+  div.output_area pre{font-family:monospace;margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;color:black; font: monospace;}
   div.output_subarea{padding:0.44em 0.4em 0.4em 1px;}
   div.output_text{text-align:left;color:#000000;font-family:monospace;line-height:1.231;}
   div.output_stream{padding-top:0.0em;padding-bottom:0.0em;}
@@ -1017,7 +1017,7 @@
   pre.dialog{background-color:#f7f7f7;border:1px solid #ddd;border-radius:4px;padding:0.4em;padding-left:2em;}
   p.dialog{padding:0.2em;}
   .shortcut_key{display:inline-block;width:15ex;text-align:right;font-family:monospace;}
-  pre,code,kbd,samp{white-space:pre-wrap;}
+  pre,code,kbd,samp{white-space:pre-wrap; font: monospace; font-family: monospace;}
   #fonttest{font-family:monospace;}
   .js-error{color:darkred;}
   a{text-decoration:underline;}
@@ -1089,11 +1089,11 @@
   }
 
   div.cell.merge_left {
-    background: #dfd;
+    background: #efe;
     margin-left: -100px;
   }
   div.cell.merge_right {
-    background: #fdd;
+    background: #fee;
     margin-left: 100px;
   }
   pre {
@@ -2565,420 +2565,408 @@ git push origin master</code></pre>
       </div>
 
           <div class="data highlight ">
-            <!-- BEGIN NOTEBOOK PASTE -->
             <div class="nbcontainer">
+            <!-- BEGIN NOTEBOOK PASTE -->
             <div class="merge_left cell text_cell_render border-box-sizing rendered_html">
-            <h1>
-              Running Code in the IPython Notebook
-            </h1>
-            </div>
+<h1>
+  Running Code in the IPython Notebook
+</h1>
+</div>
 
-            <div class=" cell text_cell_render border-box-sizing rendered_html">
-            <p>First and foremost, the IPython Notebook is an interactive environment for writing and running Python code.</p>
-            </div>
-            <div class=" cell text_cell_render border-box-sizing rendered_html">
-            <h2>
-              Code cells allow you to enter and run Python code
-            </h2>
-            </div>
+<div class=" cell text_cell_render border-box-sizing rendered_html">
+<p>First and foremost, the IPython Notebook is an interactive environment for writing and running Python code.</p>
+</div>
+<div class=" cell text_cell_render border-box-sizing rendered_html">
+<h2>
+  Code cells allow you to enter and run Python code
+</h2>
+</div>
 
-            <div class=" cell text_cell_render border-box-sizing rendered_html">
-            <p>Run a code cell using <code>Shift-Enter</code> or pressing the "Play" button in the toolbar above:</p>
-            </div>
-            <div class=" cell border-box-sizing code_cell vbox">
-            <div class="input hbox">
-            <div class="prompt input_prompt">In&nbsp;[10]:</div>
-            <div class="input_area box-flex1">
-            <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
-            </pre></div>
+<div class=" cell text_cell_render border-box-sizing rendered_html">
+<p>Run a code cell using <code>Shift-Enter</code> or pressing the "Play" button in the toolbar above:</p>
+</div>
+<div class=" cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+</pre></div>
 
-            </div>
-            </div>
-            </div>
-            <div class=" cell border-box-sizing code_cell vbox">
-            <div class="input hbox">
-            <div class="prompt input_prompt">In&nbsp;[11]:</div>
-            <div class="input_area box-flex1">
-            <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-            </pre></div>
+</div>
+</div>
+</div>
+<div class=" cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
 
-            </div>
-            </div>
-            <div class="output_wrapper">
-            <div class="output vbox">
-            <div class="prompt output_prompt">
-            <div class="output vbox"></div>
-            </div>
-            <div class="hbox output_area">
-            <div class="prompt"></div>
-            <div class="box-flex1 output_subarea output_stream output_stdout">
-            <pre>10
-            </pre>
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
-            <div class="merge_right cell text_cell_render border-box-sizing rendered_html">
-            <h2>
-              Managing the IPython Kernel
-            </h2>
-            </div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output vbox">
+<div class="prompt output_prompt">
+<div class="output vbox"></div>
+</div>
+<div class="hbox output_area">
+<div class="prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>10
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="merge_right cell text_cell_render border-box-sizing rendered_html">
+<h2>
+  Managing the IPython Kernel
+</h2>
+</div>
 
-            <div class="merge_right cell text_cell_render border-box-sizing rendered_html">
-            <p>Code is run in a separate process called the IPython Kernel.  The Kernel can be interrupted or restarted.  Try running the following cell and then hit the "Stop" button in the toolbar above.</p>
-            </div>
-            <div class=" cell border-box-sizing code_cell vbox">
-            <div class="input hbox">
-            <div class="prompt input_prompt">In&nbsp;[16]:</div>
-            <div class="input_area box-flex1">
-            <div class="highlight"><pre><span class="kn">import</span> <span class="nn">time</span>
-            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-            </pre></div>
+<div class="merge_right cell text_cell_render border-box-sizing rendered_html">
+<p>Code is run in a separate process called the IPython Kernel.  The Kernel can be interrupted or restarted.  Try running the following cell and then hit the "Stop" button in the toolbar above.</p>
+</div>
+<div class=" cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">time</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
 
-            </div>
-            </div>
-            <div class="output_wrapper">
-            <div class="output vbox">
-            <div class="prompt output_prompt">
-            <div class="output vbox"></div>
-            </div>
-            <div class="hbox output_area">
-            <div class="prompt"></div>
-            <div class="box-flex1 output_subarea output_pyerr">
-            <pre>
-            <span class="ansired">---------------------------------------------------------------------------</span>
-            <span class="ansired">KeyboardInterrupt</span>                         Traceback (most recent call last)
-            <span class="ansigreen">&lt;ipython-input-16-d7b436e260d5&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
-            <span class="ansigreen">      1</span> <span class="ansigreen">import</span> time<span class="ansiblue"></span>
-            <span class="ansigreen">----&gt; 2</span><span class="ansired"> </span>time<span class="ansiblue">.</span>sleep<span class="ansiblue">(</span><span class="ansicyan">10</span><span class="ansiblue">)</span><span class="ansiblue"></span>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output vbox">
+<div class="prompt output_prompt">
+<div class="output vbox"></div>
+</div>
+<div class="hbox output_area">
+<div class="prompt"></div>
+<div class="box-flex1 output_subarea output_pyerr">
+<pre>
+<span class="ansired">---------------------------------------------------------------------------</span>
+<span class="ansired">KeyboardInterrupt</span>                         Traceback (most recent call last)
+<span class="ansigreen">&lt;ipython-input-16-d7b436e260d5&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
+<span class="ansigreen">      1</span> <span class="ansigreen">import</span> time<span class="ansiblue"></span>
+<span class="ansigreen">----&gt; 2</span><span class="ansired"> </span>time<span class="ansiblue">.</span>sleep<span class="ansiblue">(</span><span class="ansicyan">10</span><span class="ansiblue">)</span><span class="ansiblue"></span>
 
-            <span class="ansired">KeyboardInterrupt</span>: </pre>
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
-            <div class="merge_right cell text_cell_render border-box-sizing rendered_html">
-            <p>If the Kernel dies you will be prompted to restart it. Here we call the low-level system libc.time routine with the wrong argument via
-            ctypes to segfault the Python interpreter:</p>
-            </div>
-            <div class=" cell border-box-sizing code_cell vbox">
-            <div class="input hbox">
-            <div class="prompt input_prompt">In&nbsp;[*]:</div>
-            <div class="input_area box-flex1">
-            <div class="highlight"><pre><span class="kn">import</span> <span class="nn">sys</span>
-            <span class="kn">from</span> <span class="nn">ctypes</span> <span class="kn">import</span> <span class="n">CDLL</span>
-            <span class="c"># This will crash a Linux or Mac system; equivalent calls can be made on Windows</span>
-            <span class="n">dll</span> <span class="o">=</span> <span class="s">&#39;dylib&#39;</span> <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s">&#39;darwin&#39;</span> <span class="k">else</span> <span class="s">&#39;so.6&#39;</span>
-            <span class="n">libc</span> <span class="o">=</span> <span class="n">CDLL</span><span class="p">(</span><span class="s">&quot;libc.</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">dll</span><span class="p">)</span> 
-            <span class="n">libc</span><span class="o">.</span><span class="n">time</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c"># BOOM!!</span>
-            </pre></div>
+<span class="ansired">KeyboardInterrupt</span>: </pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="merge_right cell text_cell_render border-box-sizing rendered_html">
+<p>If the Kernel dies you will be prompted to restart it. Here we call the low-level system libc.time routine with the wrong argument via
+ctypes to segfault the Python interpreter:</p>
+</div>
+<div class=" cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[*]:</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">ctypes</span> <span class="kn">import</span> <span class="n">CDLL</span>
+<span class="c"># This will crash a Linux or Mac system; equivalent calls can be made on Windows</span>
+<span class="n">dll</span> <span class="o">=</span> <span class="s">&#39;dylib&#39;</span> <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s">&#39;darwin&#39;</span> <span class="k">else</span> <span class="s">&#39;so.6&#39;</span>
+<span class="n">libc</span> <span class="o">=</span> <span class="n">CDLL</span><span class="p">(</span><span class="s">&quot;libc.</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">dll</span><span class="p">)</span> 
+<span class="n">libc</span><span class="o">.</span><span class="n">time</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c"># BOOM!!</span>
+</pre></div>
 
-            </div>
-            </div>
-            </div>
-            <div class=" cell text_cell_render border-box-sizing rendered_html">
-            <h2>
-              All of the goodness of IPython works
-            </h2>
-            </div>
+</div>
+</div>
+</div>
+<div class=" cell text_cell_render border-box-sizing rendered_html">
+<h2>
+  All of the goodness of IPython works
+</h2>
+</div>
 
-            <div class=" cell text_cell_render border-box-sizing rendered_html">
-            <p>Here are two system aliases:</p>
-            </div>
-            <div class="merge_left cell border-box-sizing code_cell vbox">
-            <div class="input hbox">
-            <div class="prompt input_prompt">In&nbsp;[4]:</div>
-            <div class="input_area box-flex1">
-            <div class="highlight"><pre><span class="n">pwd</span>
-            </pre></div>
+<div class=" cell text_cell_render border-box-sizing rendered_html">
+<p>Here are two system aliases:</p>
+</div>
+<div class="merge_left cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">pwd</span>
+</pre></div>
 
-            </div>
-            </div>
-            <div class="output_wrapper">
-            <div class="output vbox">
-            <div class="prompt output_prompt">
-            <div class="output vbox">Out[4]:</div>
-            </div>
-            <div class="hbox output_area">
-            <div class="prompt"></div>
-            <div class="box-flex1 output_subarea output_pyout">
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output vbox">
+<div class="prompt output_prompt">
+<div class="output vbox">Out[4]:</div>
+</div>
+<div class="hbox output_area">
+<div class="prompt"></div>
+<div class="box-flex1 output_subarea output_pyout">
 
-            <pre>u&apos;/Users/bgranger/Documents/Computation/IPython/code/ipython/examples/notebooks&apos;</pre>
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
-            <div class="merge_right cell border-box-sizing code_cell vbox">
-            <div class="input hbox">
-            <div class="prompt input_prompt">In&nbsp;[2]:</div>
-            <div class="input_area box-flex1">
-            <div class="highlight"><pre><span class="n">ls</span>
-            </pre></div>
+<pre>u&apos;/Users/you/dev/ip/examples/notebooks&apos;</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="merge_right cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">ls</span>
+</pre></div>
 
-            </div>
-            </div>
-            <div class="output_wrapper">
-            <div class="output vbox">
-            <div class="prompt output_prompt">
-            <div class="output vbox"></div>
-            </div>
-            <div class="hbox output_area">
-            <div class="prompt"></div>
-            <div class="box-flex1 output_subarea output_stream output_stdout">
-            <pre>01_notebook_introduction.ipynb        Octave Magic.ipynb
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output vbox">
+<div class="prompt output_prompt">
+<div class="output vbox"></div>
+</div>
+<div class="hbox output_area">
+<div class="prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>01_notebook_introduction.ipynb        Octave Magic.ipynb
+Animations Using clear_output.ipynb   PyLab and Matplotlib.ipynb
+Basic Output.ipynb                    R Magics.ipynb
+Custom Display Logic.ipynb            Running Code.ipynb
+Cython Magics.ipynb                   Script Magics.ipynb
+Data Publication API.ipynb            SymPy Examples.ipynb
+Display System.ipynb                  Trapezoid Rule.ipynb
+JS Progress Bar.ipynb                 Typesetting Math Using MathJax.ipynb
+Local Files.ipynb                     animation.m4v
+Markdown Cells.ipynb                  python-logo.svg
+Notebook Tour.ipynb
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="merge_left cell text_cell_render border-box-sizing rendered_html">
+<p>Any command line program can be run using <code>!</code> with string interpolation from Python variables:</p>
+</div>
+<div class=" cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[]:</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">message</span> <span class="o">=</span> <span class="s">&#39;The IPython notebook is great!&#39;</span>
+<span class="c"># note: the echo command does not run on Windows, it&#39;s a unix command.</span>
+<span class="o">!</span><span class="nb">echo</span> <span class="nv">$message</span>
+</pre></div>
 
-            Animations Using clear_output.ipynb   PyLab and Matplotlib.ipynb
+</div>
+</div>
+</div>
+<div class="merge_left cell text_cell_render border-box-sizing rendered_html">
+<p>Tab completion works:</p>
+</div>
+<div class=" cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span>
+<span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span>
+</pre></div>
 
-            Basic Output.ipynb                    R Magics.ipynb
+</div>
+</div>
+</div>
+<div class="merge_right cell text_cell_render border-box-sizing rendered_html">
+<p>Tab completion after <code>(</code> brings up a tooltip with the docstring:</p>
+</div>
+<div class=" cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[]:</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span>
+</pre></div>
 
-            Custom Display Logic.ipynb            Running Code.ipynb
+</div>
+</div>
+</div>
+<div class="merge_right cell text_cell_render border-box-sizing rendered_html">
+<p>Adding <code>?</code> opens the docstring in the pager below:</p>
+</div>
+<div class="merge_left cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">magic</span><span class="err">?</span>
+</pre></div>
 
-            Cython Magics.ipynb                   Script Magics.ipynb
+</div>
+</div>
+</div>
+<div class=" cell text_cell_render border-box-sizing rendered_html">
+<p>Exceptions are formatted nicely:</p>
+</div>
+<div class=" cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">y</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
 
-            Data Publication API.ipynb            SymPy Examples.ipynb
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output vbox">
+<div class="prompt output_prompt">
+<div class="output vbox"></div>
+</div>
+<div class="hbox output_area">
+<div class="prompt"></div>
+<div class="box-flex1 output_subarea output_pyerr">
+<pre>
+<span class="ansired">---------------------------------------------------------------------------</span>
+<span class="ansired">ZeroDivisionError</span>                         Traceback (most recent call last)
+<span class="ansigreen">&lt;ipython-input-15-dc39888fd1d2&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
+<span class="ansigreen">      1</span> x <span class="ansiblue">=</span> <span class="ansicyan">1</span><span class="ansiblue"></span>
+<span class="ansigreen">      2</span> y <span class="ansiblue">=</span> <span class="ansicyan">4</span><span class="ansiblue"></span>
+<span class="ansigreen">----&gt; 3</span><span class="ansired"> </span>z <span class="ansiblue">=</span> y<span class="ansiblue">/</span><span class="ansiblue">(</span><span class="ansicyan">1</span><span class="ansiblue">-</span>x<span class="ansiblue">)</span><span class="ansiblue"></span>
 
-            Display System.ipynb                  Trapezoid Rule.ipynb
+<span class="ansired">ZeroDivisionError</span>: integer division or modulo by zero</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class=" cell text_cell_render border-box-sizing rendered_html">
+<h2>
+  Working with external code
+</h2>
+</div>
 
-            JS Progress Bar.ipynb                 Typesetting Math Using MathJax.ipynb
+<div class="merge_right cell text_cell_render border-box-sizing rendered_html">
+<p>There are a number of ways of getting external code into code cells.</p>
+</div>
+<div class=" cell text_cell_render border-box-sizing rendered_html">
+<p>Pasting code with <code>&gt;&gt;&gt;</code> prompts works as expected:</p>
+</div>
+<div class="merge_right cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">the_world_is_flat</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">if</span> <span class="n">the_world_is_flat</span><span class="p">:</span>
+<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="s">&quot;Be careful not to fall off!&quot;</span><span class="p">)</span>
+</pre></div>
 
-            Local Files.ipynb                     animation.m4v
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output vbox">
+<div class="prompt output_prompt">
+<div class="output vbox"></div>
+</div>
+<div class="hbox output_area">
+<div class="prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>Be careful not to fall off!
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class=" cell text_cell_render border-box-sizing rendered_html">
+<p>The <code>%load</code> magic lets you load code from URLs or local files:</p>
+</div>
+<div class=" cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="o">%</span><span class="k">load</span><span class="err">?</span>
+</pre></div>
 
-            Markdown Cells.ipynb                  python-logo.svg
+</div>
+</div>
+</div>
+<div class=" cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="o">%</span><span class="k">pylab</span> <span class="n">inline</span>
+</pre></div>
 
-            Notebook Tour.ipynb
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output vbox">
+<div class="prompt output_prompt">
+<div class="output vbox"></div>
+</div>
+<div class="hbox output_area">
+<div class="prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>
+Welcome to pylab, a matplotlib-based Python environment [backend: module://IPython.kernel.zmq.pylab.backend_inline].
+For more information, type &apos;help(pylab)&apos;.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class=" cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="o">%</span><span class="k">load</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">sourceforge</span><span class="o">.</span><span class="n">net</span><span class="o">/</span><span class="n">mpl_examples</span><span class="o">/</span><span class="n">pylab_examples</span><span class="o">/</span><span class="n">integral_demo</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
 
-            </pre>
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
-            <div class="merge_left cell text_cell_render border-box-sizing rendered_html">
-            <p>Any command line program can be run using <code>!</code> with string interpolation from Python variables:</p>
-            </div>
-            <div class=" cell border-box-sizing code_cell vbox">
-            <div class="input hbox">
-            <div class="prompt input_prompt">In&nbsp;[]:</div>
-            <div class="input_area box-flex1">
-            <div class="highlight"><pre><span class="n">message</span> <span class="o">=</span> <span class="s">&#39;The IPython notebook is great!&#39;</span>
-            <span class="c"># note: the echo command does not run on Windows, it&#39;s a unix command.</span>
-            <span class="o">!</span><span class="nb">echo</span> <span class="nv">$message</span>
-            </pre></div>
+</div>
+</div>
+</div>
+<div class="merge_right cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[]:</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
 
-            </div>
-            </div>
-            </div>
-            <div class="merge_left cell text_cell_render border-box-sizing rendered_html">
-            <p>Tab completion works:</p>
-            </div>
-            <div class=" cell border-box-sizing code_cell vbox">
-            <div class="input hbox">
-            <div class="prompt input_prompt">In&nbsp;[9]:</div>
-            <div class="input_area box-flex1">
-            <div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span>
-            <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span>
-            </pre></div>
+<span class="c"># implement the example graphs/integral from pyx</span>
+<span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">matplotlib.patches</span> <span class="kn">import</span> <span class="n">Polygon</span>
 
-            </div>
-            </div>
-            </div>
-            <div class="merge_right cell text_cell_render border-box-sizing rendered_html">
-            <p>Tab completion after <code>(</code> brings up a tooltip with the docstring:</p>
-            </div>
-            <div class=" cell border-box-sizing code_cell vbox">
-            <div class="input hbox">
-            <div class="prompt input_prompt">In&nbsp;[]:</div>
-            <div class="input_area box-flex1">
-            <div class="highlight"><pre><span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span>
-            </pre></div>
+<span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">7</span><span class="p">)</span><span class="o">+</span><span class="mi">85</span>
 
-            </div>
-            </div>
-            </div>
-            <div class="merge_right cell text_cell_render border-box-sizing rendered_html">
-            <p>Adding <code>?</code> opens the docstring in the pager below:</p>
-            </div>
-            <div class="merge_left cell border-box-sizing code_cell vbox">
-            <div class="input hbox">
-            <div class="prompt input_prompt">In&nbsp;[8]:</div>
-            <div class="input_area box-flex1">
-            <div class="highlight"><pre><span class="n">magic</span><span class="err">?</span>
-            </pre></div>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
 
-            </div>
-            </div>
-            </div>
-            <div class=" cell text_cell_render border-box-sizing rendered_html">
-            <p>Exceptions are formatted nicely:</p>
-            </div>
-            <div class=" cell border-box-sizing code_cell vbox">
-            <div class="input hbox">
-            <div class="prompt input_prompt">In&nbsp;[15]:</div>
-            <div class="input_area box-flex1">
-            <div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
-            <span class="n">y</span> <span class="o">=</span> <span class="mi">4</span>
-            <span class="n">z</span> <span class="o">=</span> <span class="n">y</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
-            </pre></div>
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span> <span class="c"># integral area</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-            </div>
-            </div>
-            <div class="output_wrapper">
-            <div class="output vbox">
-            <div class="prompt output_prompt">
-            <div class="output vbox"></div>
-            </div>
-            <div class="hbox output_area">
-            <div class="prompt"></div>
-            <div class="box-flex1 output_subarea output_pyerr">
-            <pre>
-            <span class="ansired">---------------------------------------------------------------------------</span>
-            <span class="ansired">ZeroDivisionError</span>                         Traceback (most recent call last)
-            <span class="ansigreen">&lt;ipython-input-15-dc39888fd1d2&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
-            <span class="ansigreen">      1</span> x <span class="ansiblue">=</span> <span class="ansicyan">1</span><span class="ansiblue"></span>
-            <span class="ansigreen">      2</span> y <span class="ansiblue">=</span> <span class="ansicyan">4</span><span class="ansiblue"></span>
-            <span class="ansigreen">----&gt; 3</span><span class="ansired"> </span>z <span class="ansiblue">=</span> y<span class="ansiblue">/</span><span class="ansiblue">(</span><span class="ansicyan">1</span><span class="ansiblue">-</span>x<span class="ansiblue">)</span><span class="ansiblue"></span>
+<span class="c"># make the shaded region</span>
+<span class="n">ix</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+<span class="n">iy</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">ix</span><span class="p">)</span>
+<span class="n">verts</span> <span class="o">=</span> <span class="p">[(</span><span class="n">a</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span> <span class="o">+</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ix</span><span class="p">,</span><span class="n">iy</span><span class="p">)</span> <span class="o">+</span> <span class="p">[(</span><span class="n">b</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span>
+<span class="n">poly</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">(</span><span class="n">verts</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s">&#39;0.8&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">poly</span><span class="p">)</span>
 
-            <span class="ansired">ZeroDivisionError</span>: integer division or modulo by zero</pre>
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
-            <div class=" cell text_cell_render border-box-sizing rendered_html">
-            <h2>
-              Working with external code
-            </h2>
-            </div>
+<span class="n">text</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">),</span> <span class="mi">30</span><span class="p">,</span>
+     <span class="s">r&quot;$\int_a^b f(x)\mathrm{d}x$&quot;</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s">&#39;center&#39;</span><span class="p">,</span>
+     <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 
-            <div class="merge_right cell text_cell_render border-box-sizing rendered_html">
-            <p>There are a number of ways of getting external code into code cells.</p>
-            </div>
-            <div class=" cell text_cell_render border-box-sizing rendered_html">
-            <p>Pasting code with <code>&gt;&gt;&gt;</code> prompts works as expected:</p>
-            </div>
-            <div class="merge_right cell border-box-sizing code_cell vbox">
-            <div class="input hbox">
-            <div class="prompt input_prompt">In&nbsp;[1]:</div>
-            <div class="input_area box-flex1">
-            <div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">the_world_is_flat</span> <span class="o">=</span> <span class="mi">1</span>
-            <span class="o">&gt;&gt;&gt;</span> <span class="k">if</span> <span class="n">the_world_is_flat</span><span class="p">:</span>
-            <span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="s">&quot;Be careful not to fall off!&quot;</span><span class="p">)</span>
-            </pre></div>
+<span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">180</span><span class="p">])</span>
+<span class="n">figtext</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="s">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">figtext</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="s">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">((</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">((</span><span class="s">&#39;a&#39;</span><span class="p">,</span><span class="s">&#39;b&#39;</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+<span class="n">show</span><span class="p">()</span>
+</pre></div>
 
+</div>
+</div>
+</div><!-- END NOTEBOOK PASTE -->
             </div>
-            </div>
-            <div class="output_wrapper">
-            <div class="output vbox">
-            <div class="prompt output_prompt">
-            <div class="output vbox"></div>
-            </div>
-            <div class="hbox output_area">
-            <div class="prompt"></div>
-            <div class="box-flex1 output_subarea output_stream output_stdout">
-            <pre>Be careful not to fall off!
-            </pre>
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
-            <div class=" cell text_cell_render border-box-sizing rendered_html">
-            <p>The <code>%load</code> magic lets you load code from URLs or local files:</p>
-            </div>
-            <div class=" cell border-box-sizing code_cell vbox">
-            <div class="input hbox">
-            <div class="prompt input_prompt">In&nbsp;[14]:</div>
-            <div class="input_area box-flex1">
-            <div class="highlight"><pre><span class="o">%</span><span class="k">load</span><span class="err">?</span>
-            </pre></div>
-
-            </div>
-            </div>
-            </div>
-            <div class=" cell border-box-sizing code_cell vbox">
-            <div class="input hbox">
-            <div class="prompt input_prompt">In&nbsp;[2]:</div>
-            <div class="input_area box-flex1">
-            <div class="highlight"><pre><span class="o">%</span><span class="k">pylab</span> <span class="n">inline</span>
-            </pre></div>
-
-            </div>
-            </div>
-            <div class="output_wrapper">
-            <div class="output vbox">
-            <div class="prompt output_prompt">
-            <div class="output vbox"></div>
-            </div>
-            <div class="hbox output_area">
-            <div class="prompt"></div>
-            <div class="box-flex1 output_subarea output_stream output_stdout">
-            <pre>
-            Welcome to pylab, a matplotlib-based Python environment [backend: module://IPython.kernel.zmq.pylab.backend_inline].
-            For more information, type &apos;help(pylab)&apos;.
-            </pre>
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
-            <div class=" cell border-box-sizing code_cell vbox">
-            <div class="input hbox">
-            <div class="prompt input_prompt">In&nbsp;[3]:</div>
-            <div class="input_area box-flex1">
-            <div class="highlight"><pre><span class="o">%</span><span class="k">load</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">sourceforge</span><span class="o">.</span><span class="n">net</span><span class="o">/</span><span class="n">mpl_examples</span><span class="o">/</span><span class="n">pylab_examples</span><span class="o">/</span><span class="n">integral_demo</span><span class="o">.</span><span class="n">py</span>
-            </pre></div>
-
-            </div>
-            </div>
-            </div>
-            <div class="merge_right cell border-box-sizing code_cell vbox">
-            <div class="input hbox">
-            <div class="prompt input_prompt">In&nbsp;[]:</div>
-            <div class="input_area box-flex1">
-            <div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
-
-            <span class="c"># implement the example graphs/integral from pyx</span>
-            <span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>
-            <span class="kn">from</span> <span class="nn">matplotlib.patches</span> <span class="kn">import</span> <span class="n">Polygon</span>
-
-            <span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-                <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">7</span><span class="p">)</span><span class="o">+</span><span class="mi">85</span>
-
-            <span class="n">ax</span> <span class="o">=</span> <span class="n">subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
-
-            <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span> <span class="c"># integral area</span>
-            <span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
-            <span class="n">y</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-            <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-            <span class="c"># make the shaded region</span>
-            <span class="n">ix</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
-            <span class="n">iy</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">ix</span><span class="p">)</span>
-            <span class="n">verts</span> <span class="o">=</span> <span class="p">[(</span><span class="n">a</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span> <span class="o">+</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ix</span><span class="p">,</span><span class="n">iy</span><span class="p">)</span> <span class="o">+</span> <span class="p">[(</span><span class="n">b</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span>
-            <span class="n">poly</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">(</span><span class="n">verts</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s">&#39;0.8&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s">&#39;k&#39;</span><span class="p">)</span>
-            <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">poly</span><span class="p">)</span>
-
-            <span class="n">text</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">),</span> <span class="mi">30</span><span class="p">,</span>
-                 <span class="s">r&quot;$\int_a^b f(x)\mathrm{d}x$&quot;</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s">&#39;center&#39;</span><span class="p">,</span>
-                 <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-
-            <span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">180</span><span class="p">])</span>
-            <span class="n">figtext</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="s">&#39;x&#39;</span><span class="p">)</span>
-            <span class="n">figtext</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="s">&#39;y&#39;</span><span class="p">)</span>
-            <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">((</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">))</span>
-            <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">((</span><span class="s">&#39;a&#39;</span><span class="p">,</span><span class="s">&#39;b&#39;</span><span class="p">))</span>
-            <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
-            <span class="n">show</span><span class="p">()</span>
-            </pre></div>
-
-            </div>
-            </div>
-            </div>
-          </div>
-            <!-- END NOTEBOOK PASTE -->
           </div>
 
       <div class="file-comments-place-holder" data-path="examples/notebooks/Part 1 - Running Code.ipynb"></div>
