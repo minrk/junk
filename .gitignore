@@ -1,1 +1,7 @@
 .ipynb_checkpoints
+
+*.pyc
+*.o
+*.so
+__pycache__
+*~
