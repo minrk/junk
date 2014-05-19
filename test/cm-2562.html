@@ -72,9 +72,11 @@ div.right {
 <p>
   This appears to show an inappropriate scrollbar on Chrome 36.
   The regression was introduced in CM 3.23, and affects both 3.24 and 4.1.0.
+  It does not affect Chrome 35, and does not seems to affect Chrome 37 (Canary) at 100% zoom,
+  but does at 125%.
 </p>
 <p>
-  I see the scrollback with font-size 14px and 12px, but not 13px.
+  On Chrome 36, I see the scrollbar with font-size 14px and 12px, but not 13px.
 </p>
   
 <script>
