@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+<title>Test for Code Mirror #2562</title>
+<meta charset="utf-8"/>
+<link rel=stylesheet href="../doc/docs.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.1.0/codemirror.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.1.0/codemirror.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.1.0/package/mode/css/css.js"></script>
+<style type="text/css">
+body {
+  font-size: 14px;
+}
+.CodeMirror {
+  border: 1px solid #eee;
+  height: auto;
+}
+.CodeMirror-scroll {
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+div.hbox {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  border: 1px solid black;
+}
+div.left {
+  background-color: red;
+}
+div.right {
+  flex: 1;
+  border: 1px solid blue;
+}
+</style>
+</head>
+<body>
+<h2>Test for Code Mirror <a href="https://github.com/marijnh/CodeMirror/issues/2562">#2562</a></h2>
+<div class="hbox">
+  <div class="left">left</div>
+  <div class="right">
+    <form><textarea id="code" name="code">
+body {
+  font-size: 14px;
+}
+.CodeMirror {
+  border: 1px solid #eee;
+  height: auto;
+}
+.CodeMirror-scroll {
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+div.hbox {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  border: 1px solid black;
+}
+div.left {
+  background-color: red;
+}
+div.right {
+  flex: 1;
+  border: 1px solid blue;
+}
+    </textarea></form>
+  </div>
+</div>
+
+<p>
+  This appears to show an inappropriate scrollbar on Chrome 36.
+  The regression was introduced in CM 3.23, and affects both 3.24 and 4.1.0.
+</p>
+<p>
+  I see the scrollback with font-size 14px and 12px, but not 13px.
+</p>
+  
+<script>
+  var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+    lineNumbers: true,
+  });
+</script>
+</body>
+</html>
