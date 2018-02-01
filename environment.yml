@@ -1,3 +1,4 @@
 dependencies:
-  - python=2
-  - numpy
+  - pandas
+  - matplotlib
+  - jupyter_dashboards
