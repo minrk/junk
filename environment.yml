@@ -1,4 +1,0 @@
-dependencies:
-  - pandas
-  - matplotlib
-  - jupyter_dashboards
