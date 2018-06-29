@@ -1,5 +1,12 @@
 os: osx
-osx_image: xcode8.3
-script:
-  - env | sort
+osx_image: xcode6.4
+install:
   - find /Applications -name '*.sdk'
+  - brew install boost
+  - brew list
+  - python3 -m pip install --upgrade pip
+  - python3 -m pip install pybind11
+  - python3 -m pip freeze
+script:
+  - c++ -shared -fPIC -std=c++11 -o module.so module.cpp
+  - python3 -c "import module; print(module.fun())"
