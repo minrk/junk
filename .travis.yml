@@ -1,2 +1,5 @@
+os: osx
+osx_image: xcode8.3
 script:
   - env | sort
+  - find /Applications -name '*.sdk'
