@@ -8,5 +8,6 @@ install:
   - python3 -m pip install pybind11
   - python3 -m pip freeze
 script:
-  - c++ -shared -fPIC -std=c++11 -o module.so module.cpp
+  - clang++ --version
+  - clang++ -shared -fPIC -std=c++11 -o module.so module.cpp
   - python3 -c "import module; print(module.fun())"
