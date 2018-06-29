@@ -2,8 +2,7 @@ os: osx
 osx_image: xcode6.4
 install:
   - find /Applications -name '*.sdk'
-  - brew install boost
-  - brew list
+  - HOMEBREW_NO_AUTO_UPDATE=1 brew install boost
   - python3 -m pip install --upgrade pip
   - python3 -m pip install pybind11
   - python3 -m pip freeze
