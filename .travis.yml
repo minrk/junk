@@ -32,6 +32,10 @@ script:
   - conda create -y -n openmpi openmpi toolchain
   - conda activate openmpi
   - conda list
+  - |
+    export OMPI_MCA_plm=isolated
+    export OMPI_MCA_btl_vader_single_copy_mechanism=none
+    export OMPI_MCA_rmaps_base_oversubscribe=yes
   - env | sort
   - mpicxx test.cxx -o test
   - mpiexec -n 4 ./test
