@@ -1,12 +1,37 @@
 os: osx
 osx_image: xcode6.4
+language: generic
+before_install:
+  - |
+    # Remove homebrew.
+    echo "Removing homebrew from Travis CI to avoid conflicts."
+    curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall > ~/uninstall_homebrew
+    chmod +x ~/uninstall_homebrew
+    ~/uninstall_homebrew -fq
+    rm ~/uninstall_homebrew
 install:
+  - set -e
   - find /Applications -name '*.sdk'
-  - HOMEBREW_NO_AUTO_UPDATE=1 brew install boost
-  - python3 -m pip install --upgrade pip
-  - python3 -m pip install pybind11
-  - python3 -m pip freeze
+  - |
+    # Install Miniconda.
+    echo "Installing a fresh version of Miniconda."
+    MINICONDA_URL="https://repo.continuum.io/miniconda"
+    MINICONDA_FILE="Miniconda3-latest-MacOSX-x86_64.sh"
+    curl -L -O "${MINICONDA_URL}/${MINICONDA_FILE}"
+    bash $MINICONDA_FILE -b
+
+  - |
+    # Configure conda.
+    echo "Configuring conda."
+    source /Users/travis/miniconda3/bin/activate root
+    conda install --yes --quiet conda-forge::conda-forge-ci-setup=2
+    source run_conda_forge_build_setup
+    conda config --add channels conda-forge
+
 script:
-  - clang++ --version
-  - clang++ -shared -fPIC -std=c++11 -o module.so module.cpp
-  - python3 -c "import module; print(module.fun())"
+  - conda create -y -n openmpi openmpi toolchain
+  - conda activate openmpi
+  - conda list
+  - env | sort
+  - mpicxx test.cxx -o test
+  - mpiexec -n 4 ./test
