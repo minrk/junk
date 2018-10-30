@@ -1,8 +1,9 @@
 import time
+import os
 from concurrent.futures import ProcessPoolExecutor
 
-t = 60
-nprocs = 8
+t = int(os.environ.get('BURN_TIME') or 60)
+nprocs = int(os.environ.get('BURN_CPUS') or 8)
 
 start = time.perf_counter()
 
