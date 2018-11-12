@@ -1,0 +1,5 @@
+traceroute
+inetutils-ping
+nmap
+net-tools
+dnsutils
