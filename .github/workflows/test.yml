@@ -7,15 +7,6 @@ jobs:
    test:
       runs-on: ubuntu-latest
       steps:
-      - name: "Stage 1: Install helm"
+      - name: "check ip"
         run: |
-          echo x=${{ matrix.x }}
-          echo y=${{ matrix.y }}
-          echo xy=${{ matrix.y || matrix.x }}
-
-      strategy:
-        matrix:
-          include:
-            - x: "thisisx"
-              y: "thisisy"
-            - x: "noy"
+          curl ifconfig.me
