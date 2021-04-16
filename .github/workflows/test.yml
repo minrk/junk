@@ -7,6 +7,4 @@ jobs:
    test:
       runs-on: ubuntu-latest
       steps:
-      - name: "check ip"
-        run: |
-          curl ifconfig.me
+      - uses: minrk/test-action@main
