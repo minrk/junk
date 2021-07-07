@@ -1,0 +1,13 @@
+name: Test issue comments
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  show-comment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: show event
+        run: |
+          echo ${{ toJSON(github.event) }}
