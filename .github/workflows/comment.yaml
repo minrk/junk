@@ -1,0 +1,13 @@
+name: Test issue comments
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  test-this-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: show event
+        run: |
+          echo ${{ github.event }}
