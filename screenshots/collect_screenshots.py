@@ -156,7 +156,7 @@ async def spawn_screenshots(page):
     await page.goto(hub_url + "/hub/spawn")
     await page.locator("#spawn-delay").fill("5")
     await page.screenshot(path="spawn-form.png", full_page=True)
-    await page.locator('//input[@type="submit"]').click()
+    await page.locator('//button[@type="submit"]').click()
     await asyncio.sleep(2)
     await page.screenshot(path="spawn-progress.png", full_page=True)
     await page.locator("summary").click()
@@ -165,6 +165,14 @@ async def spawn_screenshots(page):
     await page.goto(hub_url + "/user/user-123/")
     await expect(page).to_have_url(re.compile(".*/hub/api/oauth2/authorize.*"))
     await page.screenshot(path="authorize.png", full_page=True)
+
+
+async def share_screenshots(page):
+    async with aiohttp.ClientSession() as session:
+        share_code = await api_request(session, "/share-codes/user-123/", method="POST")
+    print(share_code)
+    await page.goto(hub_url + share_code["accept_url"])
+    await page.screenshot(path="share-code.png", full_page=True)
 
 
 async def main():
@@ -182,6 +190,7 @@ async def main():
         await token_screenshots(page)
         await admin_screenshots(page)
         await spawn_screenshots(page)
+        await share_screenshots(page)
 
 
 def emit_compare(a, b):
@@ -190,7 +199,7 @@ def emit_compare(a, b):
     lines.append(f"| {a} | {b} |")
     lines.append("|---|---|")
     for png in sorted(Path(a).glob("*.png")):
-        lines.append(f"| {png.name} <td colspan=2> |")
+        lines.append(f"| <td colspan=2> {png.name} |")
         lines.append(f"| ![{png}]({a}/{png.name}) | ![{png}]({b}/{png.name}) |")
 
     with Path("compare.md").open("w") as f:
@@ -199,5 +208,5 @@ def emit_compare(a, b):
 
 
 if __name__ == "__main__":
-    # emit_compare("bs4", "bs5")
-    asyncio.run(main())
+    emit_compare("bs4", "bs5")
+    # asyncio.run(main())
