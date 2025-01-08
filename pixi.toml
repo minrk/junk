@@ -1,0 +1,12 @@
+[project]
+authors = ["Min RK <benjaminrk@gmail.com>"]
+channels = ["conda-forge"]
+name = "junk"
+platforms = ["win-64", "osx-arm64"]
+version = "0.1.0"
+
+[tasks]
+test = {cmd = "python3 test.py"}
+
+[dependencies]
+python = "3.12.7.*"

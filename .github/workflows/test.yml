@@ -5,10 +5,15 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-18.04
+    name: Install and test
+    runs-on: windows-latest
+    timeout-minutes: 10
     steps:
-      - name: install linux dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get remove libzmq5 || true # workaround https://github.com/actions/virtual-environments/issues/3317
-          sudo apt-get -y install libzmq3-dev libsodium-dev
+      - uses: actions/checkout@v4
+      - uses: prefix-dev/setup-pixi@v0.8.1
+        with:
+          cache: true
+
+      - name: Test (Windows)
+        if: ${{ runner.os == 'Windows' }}
+        run: pixi run test
