@@ -3,7 +3,7 @@ import lzma
 from pathlib import Path
 
 with tempfile.TemporaryDirectory() as td:
-    path = Path(td) / "test.bz2"
+    path = Path(td) / "test.xz"
     with lzma.open(path, mode="wt") as f:
         f.write("testdata")
     with lzma.open(path, mode="rt") as f:
