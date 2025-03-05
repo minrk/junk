@@ -15,6 +15,10 @@ jobs:
       - run: |
           cat <<EOF | docker run --rm -e MAMBA_ROOT_PREFIX=/opt/conda -i quay.io/condaforge/linux-anvil-x86_64:alma9
           mv ~/.cache ~/dotcache
-          mamba create -y -n mpi4py --override-channels -c conda-forge/linux-aarch64 -c conda-forge/noarch mpi4py
-          mamba run -a '' -n mpi4py mpiexec -n 2 python -m mpi4py.bench helloworld
+          eval $(mamba shell hook)
+          mamba create -y -n mpi4py --override-channels -c conda-forge/linux-aarch64 -c conda-forge/noarch mpi4py openmpi python=3.12 sysroot_linux-aarch64
+          mamba activate mpi4py
+          echo $CONDA_PREFIX
+          export QEMU_LD_PREFIX=$CONDA_PREFIX/aarch64-conda-linux-gnu/sysroot
+          qemu-aarch64-static mpiexec -n 2 python -m mpi4py.bench helloworld
           EOF
