@@ -5,15 +5,16 @@ on:
 
 jobs:
   test:
-    name: Install and test
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
+    container:
+      image: quay.io/condaforge/linux-anvil-x86_64:alma9
+      env:
+        MAMBA_ROOT_PREFIX: /opt/conda
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
-      - uses: prefix-dev/setup-pixi@v0.8.1
-        with:
-          cache: true
-
-      - name: Test (Windows)
-        if: ${{ runner.os == 'Windows' }}
-        run: pixi run test
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      - run: |
+          mamba create -n mpi4py --override-channels -c conda-forge/linux-aarch64 -c conda-forge/noarch mpi4py
+      - run: |
+          mamba run -a '' -n mpi4py mpiexec -n 2 python -m mpi4py.bench helloworld
