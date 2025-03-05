@@ -14,8 +14,8 @@ jobs:
           ls /proc/sys/fs/binfmt_misc/
       - run: |
           cat <<'EOF' | docker run --rm -e MAMBA_ROOT_PREFIX=/opt/conda -i quay.io/condaforge/linux-anvil-x86_64:alma9
+          # mv ~/.cache ~/dotcache
           set -ex
-          mv ~/.cache ~/dotcache
           PREFIX=/tmp/env
           mamba create -y -p $PREFIX --override-channels -c conda-forge/linux-aarch64 -c conda-forge/noarch mpi4py openmpi python=3.12 sysroot_linux-aarch64
           export QEMU_LD_PREFIX=$PREFIX/aarch64-conda-linux-gnu/sysroot
