@@ -11,7 +11,7 @@ jobs:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
       - run: |
-          cat <<EOF | docker run --rm -e MAMBA_ROOT_PREFIX=/opt/conda -i quay.io/condaforge/linux-anvil-x86_64:alma9
+          cat <<EOF | docker run --rm -e MAMBA_ROOT_PREFIX=/opt/conda -i quay.io/condaforge/linux-anvil-aarch64:alma9
           mv ~/.cache ~/dotcache
           mamba create -y -n mpi4py --override-channels -c conda-forge/linux-aarch64 -c conda-forge/noarch mpi4py
           mamba run -a '' -n mpi4py mpiexec -n 2 python -m mpi4py.bench helloworld
