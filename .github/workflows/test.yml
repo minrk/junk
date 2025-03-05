@@ -13,12 +13,11 @@ jobs:
           docker run --rm --privileged multiarch/qemu-user-static:register --reset --credential yes
           ls /proc/sys/fs/binfmt_misc/
       - run: |
-          cat <<EOF | docker run --rm -e MAMBA_ROOT_PREFIX=/opt/conda -i quay.io/condaforge/linux-anvil-x86_64:alma9
+          cat <<'EOF' | docker run --rm -e MAMBA_ROOT_PREFIX=/opt/conda -i quay.io/condaforge/linux-anvil-x86_64:alma9
+          set -ex
           mv ~/.cache ~/dotcache
-          eval $(mamba shell hook)
-          mamba create -y -n mpi4py --override-channels -c conda-forge/linux-aarch64 -c conda-forge/noarch mpi4py openmpi python=3.12 sysroot_linux-aarch64
-          mamba activate mpi4py
-          echo $CONDA_PREFIX
-          export QEMU_LD_PREFIX=$CONDA_PREFIX/aarch64-conda-linux-gnu/sysroot
-          qemu-aarch64-static mpiexec -n 2 python -m mpi4py.bench helloworld
+          PREFIX=/tmp/env
+          mamba create -y -p $PREFIX --override-channels -c conda-forge/linux-aarch64 -c conda-forge/noarch mpi4py openmpi python=3.12 sysroot_linux-aarch64
+          export QEMU_LD_PREFIX=$PREFIX/aarch64-conda-linux-gnu/sysroot
+          mamba run -a '' -p $PREFIX mpiexec -n 2 python -m mpi4py.bench helloworld
           EOF
