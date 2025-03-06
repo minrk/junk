@@ -27,8 +27,8 @@ jobs:
           export QEMU_LD_PREFIX=/opt/conda/aarch64-conda-linux-gnu/sysroot
 
           PREFIX=/tmp/env
-          mamba create -y -p $PREFIX --override-channels -c conda-forge/linux-aarch64 -c conda-forge/noarch openmpi python=3.12 sysroot_linux-aarch64
-          mamba install -p $PREFIX --override-channels ./build_prefix/linux-aarch64/mpi4py-4.0.3-py312h6b22a23_0.conda
+          mamba create -y -p $PREFIX --override-channels -c conda-forge/linux-aarch64 -c conda-forge/noarch  openmpi python=3.12
+          mamba install -y -p $PREFIX --override-channels -c file://$PWD/build_artifacts mpi4py
           mamba env export -p $PREFIX
           mamba run -a '' -p $PREFIX mpiexec -n 2 python -m mpi4py.bench helloworld
           EOF
