@@ -16,8 +16,18 @@ jobs:
           cat <<'EOF' | docker run --rm -e MAMBA_ROOT_PREFIX=/opt/conda -i quay.io/condaforge/linux-anvil-x86_64:alma9
           # mv ~/.cache ~/dotcache
           set -ex
+          # download build artifact
+          mamba install -y unzip sysroot_linux-aarch64
+          ARTIFACT_URL='https://artprodeus21.artifacts.visualstudio.com/A910fa339-c7c2-46e8-a579-7ea247548706/84710dde-1620-425b-80d0-4cf5baca359d/_apis/artifact/cGlwZWxpbmVhcnRpZmFjdDovL2NvbmRhLWZvcmdlL3Byb2plY3RJZC84NDcxMGRkZS0xNjIwLTQyNWItODBkMC00Y2Y1YmFjYTM1OWQvYnVpbGRJZC8xMTkxMzYyL2FydGlmYWN0TmFtZS9jb25kYV9hcnRpZmFjdHNfMjAyNTAzMDUuMTIuMV9saW51eF9hYXJjaDY0X21waW9wZW5tcGlweXRob24zLjEyLl9fX19jcHl0aG9u0/content?format=zip'
+          curl -L -o artifact.zip "$ARTIFACT_URL"
+          unzip artifact.zip
+          unzip conda_artifacts*/*.zip
+
+          # setup qemu
+          export QEMU_LD_PREFIX=/opt/conda/aarch64-conda-linux-gnu/sysroot
+
           PREFIX=/tmp/env
-          mamba create -y -p $PREFIX --override-channels -c conda-forge/linux-aarch64 -c conda-forge/noarch mpi4py openmpi python=3.12 sysroot_linux-aarch64
-          export QEMU_LD_PREFIX=$PREFIX/aarch64-conda-linux-gnu/sysroot
+          mamba create -y -p $PREFIX --override-channels -c conda-forge/linux-aarch64 -c conda-forge/noarch openmpi python=3.12 sysroot_linux-aarch64
+          mamba install -p $PREFIX --override-channels build_prefix/linux-aarch64/*.conda
           mamba run -a '' -p $PREFIX mpiexec -n 2 python -m mpi4py.bench helloworld
           EOF
