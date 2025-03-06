@@ -28,6 +28,7 @@ jobs:
 
           PREFIX=/tmp/env
           mamba create -y -p $PREFIX --override-channels -c conda-forge/linux-aarch64 -c conda-forge/noarch openmpi python=3.12 sysroot_linux-aarch64
-          mamba install -p $PREFIX --override-channels build_prefix/linux-aarch64/*.conda
+          mamba install -p $PREFIX --override-channels ./build_prefix/linux-aarch64/mpi4py-4.0.3-py312h6b22a23_0.conda
+          mamba env export -p $PREFIX
           mamba run -a '' -p $PREFIX mpiexec -n 2 python -m mpi4py.bench helloworld
           EOF
